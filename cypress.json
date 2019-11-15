@@ -1,0 +1,7 @@
+{
+  "projectId": "TestProject",
+  "env": {
+    "baseUrl": "http://206.189.49.222",
+    "password": "ValidPass123"
+  }
+}
