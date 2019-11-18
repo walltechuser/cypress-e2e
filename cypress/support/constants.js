@@ -4,16 +4,12 @@ export class Constants {
     register = 'Register';
     login = 'Login';
     catalogue = 'Catalogue';
-
-    // Boolean
-    true = 'true';
-    false = 'false';
+    cart = '.navbar-btn .hidden-sm';
 
     // Actions
     tick = 'tick';
     untick = 'untick';
 
-    // Filter checkbox
-    red = 'red';
-    brown = 'brown';
+    // Common buttons
+    apply_btn = '#filters+.btn-sm';
 }

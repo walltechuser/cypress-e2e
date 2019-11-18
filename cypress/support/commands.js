@@ -26,9 +26,9 @@
 //     cy.xpath('//button[@onclick="return register()"]').click();
 // });
 
-Cypress.Commands.add("assert_certain_text", (locator, text) => {
-    cy.get(locator).contains(text);
-});
+// Cypress.Commands.add("assert_certain_text", (locator, text) => {
+//     cy.get(locator).contains(text);
+// });
 
 //
 // -- This is a child command --

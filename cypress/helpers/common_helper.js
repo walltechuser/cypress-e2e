@@ -1,3 +1,7 @@
+import {Constants} from "../support/constants";
+
+const constants = new Constants();
+
 export class CommonHelper {
 
     assert_certain_text(locator, text) {
@@ -5,7 +9,7 @@ export class CommonHelper {
     }
 
     click_on_button(locator) {
-        cy.get(locator).click({force: true});
+        cy.get(locator, {timeout: 10000}).click({force: true});
     }
 
     enter_value_into_field(locator, value) {
@@ -27,7 +31,15 @@ export class CommonHelper {
         } else {
             throw new Error('No such action "' + action + '" is applicable')
         }
+        this.click_on_button(constants.apply_btn)
     }
 
+    wait(period) {
+        cy.wait(period);
+    }
 
+    go_to_cart() {
+        this.wait(500);
+        this.click_on_button(constants.cart);
+    }
 }

@@ -21,5 +21,4 @@ export class LandingPage extends CommonHelper {
     register_user() {
         cy.xpath(this.register_user_btn).click({force: true});
     }
-
 }

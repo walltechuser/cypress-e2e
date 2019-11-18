@@ -18,32 +18,34 @@ describe('Navigate through Landing Page', function () {
     const password = Cypress.env('password');
 
     beforeEach(function () {
-        // remain for future implementation for running a case before each "it"
+        // remain for future implementation to run scenario before each "it" within "describe"
     });
 
-    // it('Check Landing Page', function () {
-    //     commonHelper.assert_certain_text(landingPage.body_block, constants.home);
-    //     commonHelper.assert_certain_text(landingPage.body_block, constants.catalogue);
-    //     commonHelper.assert_certain_text(landingPage.header_block, constants.register);
-    //     commonHelper.assert_certain_text(landingPage.header_block, constants.login);
-    // });
-    //
-    // it('Register a new user', function () {
-    //     commonHelper.click_on_button(landingPage.register_btn);
-    //     landingPage.enter_value_into_field(landingPage.user_name_txt, user_name)
-    //     landingPage.enter_value_into_field(landingPage.first_name_txt, first_name);
-    //     landingPage.enter_value_into_field(landingPage.last_name_txt, last_name);
-    //     landingPage.enter_value_into_field(landingPage.email_txt, email);
-    //     landingPage.enter_value_into_field(landingPage.password_txt, password);
-    //     // landingPage.register_user()
-    // });
+    it('Check Landing Page for all existent elements', function () {
+        commonHelper.assert_certain_text(landingPage.body_block, constants.home);
+        commonHelper.assert_certain_text(landingPage.body_block, constants.catalogue);
+        commonHelper.assert_certain_text(landingPage.header_block, constants.register);
+        commonHelper.assert_certain_text(landingPage.header_block, constants.login);
+    });
 
-    it('Select an item from Catalogue and add it to the "cart"', function () {
+    it('Register a new user', function () {
+        commonHelper.click_on_button(landingPage.register_btn);
+        landingPage.enter_value_into_field(landingPage.user_name_txt, user_name);
+        landingPage.enter_value_into_field(landingPage.first_name_txt, first_name);
+        landingPage.enter_value_into_field(landingPage.last_name_txt, last_name);
+        landingPage.enter_value_into_field(landingPage.email_txt, email);
+        landingPage.enter_value_into_field(landingPage.password_txt, password);
+        landingPage.register_user();
+    });
+
+    it('Add product to the "cart"', function () {
         commonHelper.click_on_button(landingPage.catalogue_btn);
         commonHelper.interact_with_checkbox(constants.tick, 'red, brown');
         commonHelper.interact_with_checkbox(constants.untick, 'brown');
-        commonHelper.click_on_button(cataloguePage.clear_btn);
         cataloguePage.reset_filters();
+        commonHelper.interact_with_checkbox(constants.tick, 'red');
+        cataloguePage.add_product_to_cart('Crossed');
+        commonHelper.go_to_cart();
+        cataloguePage.cart_contains_product('Crossed');
     });
-
 });
