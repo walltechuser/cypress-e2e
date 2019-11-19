@@ -3,18 +3,18 @@ import {CommonHelper} from "../helpers/common_helper";
 const commonHelper = new CommonHelper();
 
 export class LandingPage extends CommonHelper {
-    header_block = '.menu';
-    body_block = '.navbar.navbar-default';
-    register_btn = '#register > a';
-    user_name_txt = '#register-username-modal';
-    first_name_txt = '#register-first-modal';
-    last_name_txt = '#register-last-modal';
-    email_txt = '#register-email-modal';
-    password_txt = '#register-password-modal';
-    catalogue_btn = '.dropdown-toggle';
-    register_user_btn = '//button[@onclick="return register()"]';
+    headerBlock = '.menu';
+    bodyBlock = '.navbar.navbar-default';
+    btnRegister = '#register > a';
+    btnCatalogue = '.dropdown-toggle';
+    btnRegisterUser = '//button[@onclick="return register()"]';
+    txtUserName = '#register-username-modal';
+    txtFirstName = '#register-first-modal';
+    txtLastName = '#register-last-modal';
+    txtEmail = '#register-email-modal';
+    txtPassword = '#register-password-modal';
 
-    register_user() {
-        commonHelper.click_on_button_xpath(this.register_user_btn)
+    registerUser() {
+        commonHelper.clickOnButtonXpath(this.btnRegisterUser)
     }
 }

@@ -11,5 +11,5 @@ export class Constants {
     untick = 'untick';
 
     // Common buttons
-    apply_btn = '#filters+.btn-sm';
+    btnApply = '#filters+.btn-sm';
 }

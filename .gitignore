@@ -1,3 +1,4 @@
+cypress/integration/examples
 node_modules
 .DS_Store
 .idea

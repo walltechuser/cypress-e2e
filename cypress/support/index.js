@@ -21,7 +21,7 @@ const commonHelper = new CommonHelper();
 
 beforeEach(function () {
     commonHelper.navigate(baseUrl);
-    commonHelper.url_should_contain(baseUrl);
+    commonHelper.urlShouldContain(baseUrl);
 });
 
 // Alternatively you can use CommonJS syntax:

@@ -4,27 +4,27 @@ const constants = new Constants();
 
 export class CommonHelper {
 
-    assert_certain_text(locator, text) {
+    assertCertainText(locator, text) {
         cy.get(locator).contains(text)
     }
 
-    click_on_button(locator) {
+    clickOnButton(locator) {
         cy.get(locator, {timeout: 10000}).click({force: true});
     }
 
-    click_on_button_xpath(locator) {
+    clickOnButtonXpath(locator) {
         cy.xpath(locator, {timeout: 10000}).click({force: true});
     }
 
-    enter_value_into_field(locator, value) {
+    enterValueIntoField(locator, value) {
         cy.get(locator).type(value).should('have.value', value);
     }
 
-    url_should_contain(value) {
+    urlShouldContain(value) {
         cy.url().should('include', value)
     }
 
-    interact_with_checkbox(action, value) {
+    interactWithCheckbox(action, value) {
         let locator = "[type='checkbox']";
         let values = value.split(", ");
         if (action === 'tick') {
@@ -34,16 +34,16 @@ export class CommonHelper {
         } else {
             throw new Error('No such action "' + action + '" is applicable')
         }
-        this.click_on_button(constants.apply_btn)
+        this.clickOnButton(constants.btnApply)
     }
 
     wait(period) {
         cy.wait(period);
     }
 
-    go_to_cart() {
+    goToCart() {
         this.wait(500);
-        this.click_on_button(constants.cart);
+        this.clickOnButton(constants.cart);
     }
 
     navigate(url) {

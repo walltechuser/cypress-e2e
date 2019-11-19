@@ -11,9 +11,9 @@ const commonHelper = new CommonHelper();
 const constants = new Constants();
 
 describe('Navigate through Landing Page', function () {
-    const first_name = chance.first();
-    const last_name = chance.last();
-    const user_name = first_name + ' ' + last_name;
+    const nameFirst = chance.first();
+    const nameLast = chance.last();
+    const nameUser = nameFirst + ' ' + nameLast;
     const email = chance.email();
     const password = Cypress.env('password');
 
@@ -22,30 +22,30 @@ describe('Navigate through Landing Page', function () {
     });
 
     it('Check Landing Page for all existent elements', function () {
-        commonHelper.assert_certain_text(landingPage.body_block, constants.home);
-        commonHelper.assert_certain_text(landingPage.body_block, constants.catalogue);
-        commonHelper.assert_certain_text(landingPage.header_block, constants.register);
-        commonHelper.assert_certain_text(landingPage.header_block, constants.login);
+        commonHelper.assertCertainText(landingPage.bodyBlock, constants.home);
+        commonHelper.assertCertainText(landingPage.bodyBlock, constants.catalogue);
+        commonHelper.assertCertainText(landingPage.headerBlock, constants.register);
+        commonHelper.assertCertainText(landingPage.headerBlock, constants.login);
     });
 
     it('Register a new user', function () {
-        commonHelper.click_on_button(landingPage.register_btn);
-        landingPage.enter_value_into_field(landingPage.user_name_txt, user_name);
-        landingPage.enter_value_into_field(landingPage.first_name_txt, first_name);
-        landingPage.enter_value_into_field(landingPage.last_name_txt, last_name);
-        landingPage.enter_value_into_field(landingPage.email_txt, email);
-        landingPage.enter_value_into_field(landingPage.password_txt, password);
-        landingPage.register_user();
+        commonHelper.clickOnButton(landingPage.btnRegister);
+        landingPage.enterValueIntoField(landingPage.txtUserName, nameUser);
+        landingPage.enterValueIntoField(landingPage.txtFirstName, nameFirst);
+        landingPage.enterValueIntoField(landingPage.txtLastName, nameLast);
+        landingPage.enterValueIntoField(landingPage.txtEmail, email);
+        landingPage.enterValueIntoField(landingPage.txtPassword, password);
+        landingPage.registerUser();
     });
 
     it('Add product to the "cart"', function () {
-        commonHelper.click_on_button(landingPage.catalogue_btn);
-        commonHelper.interact_with_checkbox(constants.tick, 'red, brown');
-        commonHelper.interact_with_checkbox(constants.untick, 'brown');
-        cataloguePage.reset_filters();
-        commonHelper.interact_with_checkbox(constants.tick, 'red');
-        cataloguePage.add_product_to_cart('Crossed');
-        commonHelper.go_to_cart();
-        cataloguePage.cart_contains_product('Crossed');
+        commonHelper.clickOnButton(landingPage.btnCatalogue);
+        commonHelper.interactWithCheckbox(constants.tick, 'red, brown');
+        commonHelper.interactWithCheckbox(constants.untick, 'brown');
+        cataloguePage.filtersReset();
+        commonHelper.interactWithCheckbox(constants.tick, 'red');
+        cataloguePage.addProductToCart('Crossed');
+        commonHelper.goToCart();
+        cataloguePage.cartContainsProduct('Crossed');
     });
 });

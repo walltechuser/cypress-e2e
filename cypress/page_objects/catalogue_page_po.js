@@ -4,21 +4,21 @@ const commonHelper = new CommonHelper();
 
 export class CataloguePage extends CommonHelper {
 
-    clear_btn = '.btn-danger';
+    btnClear = '.btn-danger';
 
-    reset_filters() {
-        commonHelper.click_on_button(this.clear_btn);
+    filtersReset() {
+        commonHelper.clickOnButton(this.btnClear);
         commonHelper.wait(500);
         cy.get('[id="filters"]', {timeout: 10000}).should('exist');
         cy.get("[type='checkbox'][checked='true']").should('not.exist');
     }
 
-    add_product_to_cart(name) {
+    addProductToCart(name) {
         let locator = '//*[contains(text(),' + '"' + name + '"' + ')]/parent::*/following-sibling::*[2]/*[@class="btn btn-primary"]';
         cy.xpath(locator).click({force: true});
     }
 
-    cart_contains_product(name) {
+    cartContainsProduct(name) {
         let container = '#numItemsInCart+.table-responsive';
         // cy.get(container).invoke('text').should('contain', name)
         cy.get(container).should('contain', name);
