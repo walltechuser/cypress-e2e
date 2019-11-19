@@ -12,9 +12,12 @@ export class CommonHelper {
         cy.get(locator, {timeout: 10000}).click({force: true});
     }
 
+    click_on_button_xpath(locator) {
+        cy.xpath(locator, {timeout: 10000}).click({force: true});
+    }
+
     enter_value_into_field(locator, value) {
-        cy.get(locator)
-            .type(value).should('have.value', value);
+        cy.get(locator).type(value).should('have.value', value);
     }
 
     url_should_contain(value) {
@@ -41,5 +44,9 @@ export class CommonHelper {
     go_to_cart() {
         this.wait(500);
         this.click_on_button(constants.cart);
+    }
+
+    navigate(url) {
+        cy.visit(url)
     }
 }

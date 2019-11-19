@@ -12,16 +12,16 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-import {LandingPage} from "../page_objects/landing_page_po";
 // Import commands.js using ES2015 syntax:
 import './commands.js'
+import {CommonHelper} from "../helpers/common_helper";
 
 const baseUrl = Cypress.env('baseUrl');
-const landingPage = new LandingPage();
+const commonHelper = new CommonHelper();
 
 beforeEach(function () {
-    landingPage.navigate(baseUrl);
-    landingPage.url_should_contain(baseUrl);
+    commonHelper.navigate(baseUrl);
+    commonHelper.url_should_contain(baseUrl);
 });
 
 // Alternatively you can use CommonJS syntax:

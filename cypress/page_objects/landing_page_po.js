@@ -14,11 +14,7 @@ export class LandingPage extends CommonHelper {
     catalogue_btn = '.dropdown-toggle';
     register_user_btn = '//button[@onclick="return register()"]';
 
-    navigate(url) {
-        cy.visit(url)
-    }
-
     register_user() {
-        cy.xpath(this.register_user_btn).click({force: true});
+        commonHelper.click_on_button_xpath(this.register_user_btn)
     }
 }

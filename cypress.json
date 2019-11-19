@@ -1,5 +1,5 @@
 {
-  "projectId": "TestProject",
+  "projectId": "Weavesocks",
   "env": {
     "baseUrl": "http://206.189.49.222",
     "password": "ValidPass123"
